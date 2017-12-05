@@ -1,0 +1,8 @@
+[color]
+	ui = true
+[format]
+	pretty = oneline
+[user]
+	mail = antoine.roulin@eisti.fr
+	name = Antoine Roulin
+	email = antoine.roulin@eisti.fr
