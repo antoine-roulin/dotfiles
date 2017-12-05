@@ -1,0 +1,100 @@
+\documentclass[letterpaper,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[scaled=.9]{helvet}
+\usepackage{courier} % tt
+\author{Antoine Roulin}
+\date{}
+\title{NERG}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\part{Arche}
+\label{sec-1}
+
+\chapter{}
+\label{sec-1-1}
+
+Il se tenait debout sur le quai, les yeux levés. Au-dessus de lui, la lumière diffusée par le ciel artificiel adoptait une teinte de plus en plus chaude, abandonnant le gris trop lumineux qu'il diffusait la plupart du temps. Çà et là, on pouvait discerner malgré la distance, grâce à l'absence de nuages, des plaques rectangulaires noires, des panneaux dysfonctionnels. Certains tombaient parfois, laissant un amas de câbles pendre, comme si ces derniers avaient essayés de les rattraper.
+
+La navette arriva, grinçante, interrompant ses pensées. Elle faisait visiblement son âge, et ses répulseurs desquels jaillissaient des étincelles peinaient à la maintenir stable sur la voie. Mis à part ces derniers, assemblés pêle-mêles avec des batteries et des condensateurs de seconde main tout le long de la navette pour la supporter, cette dernière était constituée d'un bloc, un long cylindre lisse d'un blanc mat quoique jaunâtre par endroits, et parcouru de stries horizontales. Aux deux extrémités s'ouvrirent les seules ouvertures, des iris métalliques assez rapides pour que les accidents ne soient pas rares à leur fermeture.
+
+Tandis qu'un flot de personnes descendait de l'arrière, il se joint à celui qui s'affairait à monter par l'avant. Aveuglé par la lumière crue des néons au plafond, il se dirigea vers une section à l'éclairage défectueux, évitant du même coup les projections publicitaires sur les parois. Il s'affaissa dans un siège, glissa lentement vers l'avant afin de se caler dans une position raisonnablement confortable. Satisfait, il enclencha le curseur d'immersion de son casque d'une case en plus.
+
+Aux notifications en périphéries de son champ de vision vinrent se rajouter divers tableaux de bords et indicateurs. Il fit disparaître ceux liés à l'activité de la centrale, agrandit celui de son injection de nootropes et entreprit dans un nouveau panel la recherche d'une expérience d'une cinquantaine de minutes. Badru lui en avait recommandé une, apparemment. Encore du cul. Peu importe les effets rajoutés par dessus, il n'était pas sûr de vouloir se projeter ça pendant son trajet dans le tube. Par contre le même auteur avait également réalisé une expérience visiblement inspirée par des forêts primaires terrestres. Pourquoi pas. Il ajusta son mélange, juste assez fort pour lui permettre de ne pas voir passer le temps et pas trop violent pour lui permettre de rentrer chez lui en marchant droit. Surtout rentrer chez lui en fait. Sentant ses poignets se contracter pendant les micro-injections, il déclencha la lecture.
+
+Racine. Tronc. Branche. Fruit. Oiseau. Magnifique, plein de couleurs. Vivant et volant. L'étendue de la forêt l'écrasait et l'étirait. Il passa avec aisance entre les branche emmêlées, dévorant du regard les détails qui s'offrait à lui, tous avec une intensité nouvelle, quel que soit la direction qu'il prenait. À pleine vitesse, il rentra dans un arbre qui l'attirait de manière irrésistible. Il redevint végétal, et ce fut comme s'il maîtrisait chaque parcelle du sol de cette forêt. Il était l'arbre le plus grand. Le plus fort. Ancré dans les tréfonds d'une terre immémoriale, sa cime atteignait une altitude éclatante, dans un ciel immaculé. Sa respiration rythmait la vie de son univers. La détonation le déracina et l'écrasa dans son siège.
+
+Une gerbe rouge maculait le côté droit de sa visière. Le passager à ses côtés n'avait plus de tête. Enfin il avait le reste de son corps, mais c'était sans doute pas suffisant pour être un élément productif de la société. Sûr que si j'allais comme ça au boulot demain, on me laisserait pas rentrer, il pensa, et marqua un arrêt. L'arme dans la main de l'homme debout en face de lui clignotait en rouge, et le protocole d'urgence s'engagea. Il s'arc-bouta, le souffle coupé par l'injection précipitée pour le faire redescendre. Il eut à peine le temps d'inspirer et de faire mine de se lever qu'une seconde détonation eut lieu et plaqua son torse contre le dossier de son siège. Sonné et pas encore très lucide, il passa le relais à son contrôleur auxiliaire avec soulagement.
+
+Bond. Esquive. Désarmement. Lame. Jugulaire.
+
+Il se tenait debout, l'autre finissait de tomber au sol, et son compagnon de voyage était resté calé dans son siège, bien qu'il n'ait plus de problème d'appui-tête. Avant que le sang ne touche ses bottes, il se replia vers la sortie du wagon. Il ne restait plus que 10 minutes de trajet, trop court pour une prise satisfaisante.
+
+\rule{\linewidth}{0.5pt}
+
+Ses tempes bourdonnaient encore quand il arriva à son district. Il faudra réajuster le mélange d'urgence, il ne l'avait pas utilisé depuis un bout de temps. Il jetait de temps à autre des regards inquiets vers les fenêtres sous lesquelles il passait, bien que la plupart d'entre elles soient obstruées par des plaques d'isolation bon marché. Par endroit des blocs d'habitation manquaient, grêlant les façades. Ces façades qu'il connaissait par coeur, la mosaïque des modules de couleurs différentes à cause de leurs âges, et çà et là des balcons encombrés ajoutant au relief désordonné.
+
+Il s'engouffra dans son bloc par le sas fatigué, dans l'ascenseur réparé et apprécia l'accélération vers les derniers étages où il retrouverait son module. La porte coulissa, révélant une longue pièce noire. Comme il entrait, les lumières s'activèrent le long des murs, diffusant un mélange de couleurs préconisé par ses capteurs cognitifs. Le mur du fond s'anima, et lui présenta les évènements qu'il avait ignoré pendant son retour. Il les désactiva et lança la préparation de sa portion tout en se débarrassant de ses affaires, à l'exception de son casque. Il se coula dans le siège ortho-ajusté qui trônait face au mur qui était maintenant couvert d'informations diverses provenant de son travail, de ses relations, du comité de son bloc. Son casque s'y connecta et relâcha sa prise sur sa tête. Il sentit les connecteurs s'extirper du fond du fauteuil, et la sensation du cuir synthétique fut comme tranchée par les embouts métalliques froids qui cherchaient à s'accrocher.
+Il se cala un peu mieux, et eu un soupir de soulagement quand la connexion s'effectua. Les niveaux de ses réservoirs étaient refaits. Il garda les yeux fermés. Il n'avait pas faim.
+
+\smallskip
+
+Cela faisait 3 jours d'affilée qu'elle n'avait pas dormi. La vérification de la classification des comptes-rendus l'énervait encore plus que son ventre qui criait famine et l'énergie artificielle insufflée par les pilules d'éveil. Maryam se souvint de ses années de formation, des projets hebdomadaires pendant lesquels personne ne dormait. Du labeur sous les néons allongés des salles de l'académie. C'était il y a si longtemps. Tellement de lumière, alors. Des baies vitrées donnaient sur l'écran 05 de la station, le mieux préservé. Par orgueil, il affichait sans discontinuer un horizon ensoleillé comme même les Anciens ne devaient pas oser se rappeler. Un paysage partagé avec le pylône du Conseil. Si elle voulait y retourner, elle ferait mieux de se remettre à travailler. Elle jeta un coup d'oeil autour d'elle, les stations de travail avaient été désertées depuis longtemps par ses collègues. Elle soupira doucement et remis son masque pour se plonger dans l'amas de données qu'elle recevait sans discontinuer.
+
+\rule{\linewidth}{0.5pt}
+
+Une douche. Un repas chaud. Huit heures de sommeil. Ce n'était que les premiers bénéfices de ses efforts des derniers jours. Le masque de contentement forcé de son supérieur devant l'indice de qualité de traitement de ses dossiers était tout ce qu'elle avait espéré. Elle le trouvait médiocre. Il le savait. Il savait aussi qu'elle n'ambitionnait même pas de le remplacer, simplement de faire autre chose. Passer à un autre secteur crucial ou elle pourrait démontrer son dévouement à la station. Elle avait travaillé au recyclage, à la sortie de l'académie. Des métaux, pour être exact. Un bon poste. Elle était passée à la direction du traitement des déchets organiques humains ensuite. Puis aux archives, où elle avait rencontré Vlad. Il devait encore y être. Une fois qu'elle avait étudié tout ce qui l'intéressait, elle s'était arrangée pour intégrer la commission de contrôle des affaires internes du Conseil. Elle était maintenant prête à rejoindre un cabinet. N'importe lequel. Juste rejoindre les blocs supérieurs, oublier le reste de la station. Ne plus dépendre des infrastructures privatisées ou collaboratives. Juste vivre à son rythme et apposer son nom sur des dossiers pour prétendre améliorer l'autonomie et l'état de la station.
+
+\bigskip
+
+La conseillère le regarde fixement, et esquisse de subtils mouvements à intervalles réguliers. Ses lèvres se pincent légèrement. Ses yeux se détournent brièvement de lui. Elle l'insupporte.
+
+Il commande un verre au bar. avant qu'il ait eu le temps d'attendre, il se retrouve avec un verre dans la main. Il le vide et en commande un autre.
+
+Elle lui repose ses questions enregistrées. La modulation et les reformulations programmées ne sont pas suffisantes pour masquer la répétitivité de la procédure. Il sait ce qu'elle veut. Ce qu'ils veulent. Des banalités sans fond sortent de sa bouche sans qu'il y pense. Elle l'énerve.
+
+Au troisième verre, son ventre fond et remonte au fond de sa gorge avant de se diffuser dans ses bras. La chaleur ralentit sa respiration et ses pensées. Il jette un regard circulaire au bouge dans lequel il est tombé. La porte. La ruelle derrière. Les pillules qu'il a arraché à un dealer minable. Avalées, comme le reste. Il redemande un verre, et de la nourriture.
+
+Il a l'impression rester calme et impassible mais aujourd'hui il n'y arrive pas. Qu'est-ce qu'elle percoit de lui ? Qu'est-ce que son analyse de sentiment lui indique ? Des signaux contradictoires, en tout cas. d'une phrase à l'autre, l'androïde adopte un ton qui se veut tantôt rassurant, tantôt intimidant. À moins que ce soit pour le destabiliser. Ou ça se trouve, c'est lui qui n'arrive plus à déchiffrer ses intentions. Un putain de robot. Un vieux, en plus. À l'époque, il en déglinguait plein, quand il était en permission. Faciles à convaincre et pas chères. Ça martèle sous sa tête.
+
+Ça martèle sous sa tête. La nourriture a étanché sa faim et attisé sa soif. Une bouteille presque vide le regarde sur le comptoir humide. Les pillules étaient censées être suffisantes en fait. Il aurait pas dû boire. Les lumières brillaient. Fort. Au bout du bar un androïde. Mignon. Une vieille génération. Mais il est incapable de bouger. Pas besoin. Son esprit le quitte. "Merde, des putains d'enthéogènes. Enfin, c'était évident en plus. Le mec portait une robe rouge à motifs. Bordel, si ça se trouve il y avait même un panneau au-dessus de lui. T'es vraiment mal, mon gars. Et t'es encore plus mal maintenant. Tu braques un moine pour halluciner dans un bar en faisant passer le tout en buvant comme un porc- Fais gaffe, ta tête !" Il releva sa tête avant qu'elle ne touche l'assiette dans laquelle les restes de son plat le jugaient sévèrement. La bouteille le regardait ausi. "Tu braques un gosse des beaux quartiers en quête d'expérience spirituelle juste pour parler tout seul dans un bar ? C'est pour justifier ta pension ou t'adores passer pour un vieux clodo ?" Il réfléchit, et se dit qu'il était pas si vieux. Par contre pas de maison, ouais.
+
+Il allait craquer. Il sentait sa bouche crispée dans un rictus qu'il essayait de faire ressembler à un sourire. Empathique. Humain. Elle était peut-être pas convaincue, mais elle avait dû remplir assez de case dans son rapport mensuel de merde, parce qu'elle lui tendit un pad en lui intimant de signer. Il posa sa main d'un coup, et sentit la pression redescendre d'un coup. Pendant que l'authentification s'effectuait, il remarqua que c'était plus simple, avant. Qu'il stressait dans des situations qui en valait la peine. Qu'il s'en nourrissait. Un signal sonore lui fit retirer sa main, qui restat en l'air pour réceptionner la carte de crédit temporaire qu'elle lui tendait. Si elle était armée, il l'aurait combattue sans problème. Un combattant, c'est ça qu'il était, ouais. Ça avait été une fierté, puis son identité, tout ce qu'il avait. Maintenant c'était juste une partie de lui, un peu plus qu'un souvenir. Si ça avait été une pute, il l'aurait déglinguée. Mais elle devait même pas avoir de parties génitales. Aucun intérêt pour gérer des parasites dans son genre. Quoique. Il quitta le bureau exigu pendant qu'elle récitait ses formules de politesse. Il était passé devant une néo-église en venant. Il adorait ces endroits. Toujours plein de jeunes bourgeois défoncés encleins à partager et à faire plaisir. Ou plus assez conscients. En sortant du bâtiment il se dirigea vers les rues couvertes et sombres, la lumière du jour artificiel l'avait aveuglé.
+
+Elle l'avait suivi. Amincie, mais toujours aussi forte. Elle percait par endroit dans le plafond du bar, dirigée en plein dans ses yeux. Il essayait de bouger la tête, mais il n'arrivait pas à s'en débarrasser. Alors il s'intéressa un peu plus à l'androïde au bout du bar. Modèle classique, pour les tâches basiques. Peut-être même pas de module d'interaction sociale. "Mais nan. Il serait pas là sinon." Ah ouais. Euh. Il toussa, une toux rauque qui venait des poumons et le secoua dangereusement. Il reprit ses esprits autant qu'il put. Il s'imagina vérifier le contenu de ses poches avant de se lever. Son assiette devait être à peu près vide et ses couverts plus au moins à côté. Les verres avait déjà dû disparaître. La bouteille était sans doute pas loin d'être vide. Il espérait avoir l'air aussi normal qu'il le pouvait. Il se leva en repoussant son tabouret aussi précisément quil le pouvait, et lissa sa combinaison. Il le fixa et se dirigea vers lui sans tanguer. Sans trembler. Il était vraiment mignon, il vait les cheveux courts, rasés sur côtés. Une mèche rebelle lui tombait sur les yeux. "Arrête. Choppe-le et fais ce que t'as faire. Fais-le vite." Il demandait juste une nuit agréable. Pendant qu'il le baratinait, sa main gauche triturait nerveusement ses crédits dans sa poche. Quand il sortirent du bar pour aller dans son module, il laissa les pillules le guider à lui dans la nuit percée de néons immaculés. Sa voix dans sa tête s'était tue. Il ne se suivait même pas. Une nuit agréable.
+
+\chapter{}
+\label{sec-1-2}
+
+\part{Anneau}
+\label{sec-2}
+
+\part{Noyau}
+\label{sec-3}
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

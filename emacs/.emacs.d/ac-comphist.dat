@@ -1,0 +1,36 @@
+((("org-hide-emphasis-markers" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("menu-bar-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("-1" .
+   [1 0])
+  ("require" .
+   [1 0 0 0 0 0 0])
+  ("recentf" .
+   [1 0 0 0 0 0 0])
+  ("setq" .
+   [2 0 0 0])
+  ("recentf-max-saved-items" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("recentf-max-menu-items" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("recentf-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("set" .
+   [1 0 0])
+  ("initial-buffer-choice" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("recentf-open-files" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("torch" .
+   [1 0 0 0 0])
+  (":config" .
+   [1 0 0 0 0 0 0])
+  ("add-hook" .
+   [2 0 0 0 0 0 0 0])
+  ("org-mode" .
+   [1 0 0 0 0 0 0 0])
+  ("olivetti-mode" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("latex-mode" .
+   [0 0 0 0 0 1 0 0 0 0])))
