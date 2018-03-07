@@ -1,1 +1,1 @@
-("~/OtletTraiteDocumentation/" "~/dev/Travlendar+/" "~/dev/DarboisRoulin/" "~/dev/Python/PolimiChallengeRS/" "~/dev/arln.fr/" "~/traite/")
+("~/dotfiles/" "~/OtletTraiteDocumentation/" "~/dev/Travlendar+/" "~/dev/DarboisRoulin/" "~/dev/Python/PolimiChallengeRS/" "~/dev/arln.fr/" "~/traite/")

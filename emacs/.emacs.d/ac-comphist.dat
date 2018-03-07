@@ -1,36 +1,90 @@
-((("org-hide-emphasis-markers" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("menu-bar-mode" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("-1" .
+(((":custom" .
+   [1 0 0 0 0 0 0])
+  ("d2" .
    [1 0])
-  ("require" .
+  ("d1" .
+   [1 0])
+  ("Date" .
+   [3 0 0 0])
+  ("argv" .
+   [1 0 0 0])
+  ("argc" .
+   [1 0 0 0])
+  ("main" .
+   [1 0 0 0])
+  ("std" .
+   [6 0 0])
+  ("size" .
+   [1 0 0 0])
+  ("Vector" .
+   [1 0 0 0 0 0])
+  ("scroll-bar-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("kbd" .
+   [2 0 0])
+  ("global-unset-key" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":ensure" .
    [1 0 0 0 0 0 0])
-  ("recentf" .
-   [1 0 0 0 0 0 0])
-  ("setq" .
-   [2 0 0 0])
-  ("recentf-max-saved-items" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("recentf-max-menu-items" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
-  ("recentf-mode" .
-   [1 0 0 0 0 0 0 0 0 0 0 0])
-  ("set" .
-   [1 0 0])
-  ("initial-buffer-choice" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("recentf-open-files" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("torch" .
-   [1 0 0 0 0])
-  (":config" .
-   [1 0 0 0 0 0 0])
-  ("add-hook" .
-   [2 0 0 0 0 0 0 0])
-  ("org-mode" .
-   [1 0 0 0 0 0 0 0])
+  ("use-package" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("counsel-projectile-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("latex-mode" .
+   [0 0 0 0 0 1 0 0 0 0])
   ("olivetti-mode" .
    [1 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("latex-mode" .
-   [0 0 0 0 0 1 0 0 0 0])))
+  ("org-mode" .
+   [1 0 0 0 0 0 0 0])
+  ("add-hook" .
+   [2 0 0 0 0 0 0 0])
+  (":config" .
+   [2 0 0 0 0 0 0])
+  ("torch" .
+   [1 0 0 0 0])
+  ("recentf-open-files" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("initial-buffer-choice" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("set" .
+   [1 0 0])
+  ("recentf-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("recentf-max-menu-items" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("recentf-max-saved-items" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("setq" .
+   [2 0 0 0])
+  ("recentf" .
+   [1 0 0 0 0 0 0])
+  ("require" .
+   [1 0 0 0 0 0 0])
+  ("-1" .
+   [1 0])
+  ("menu-bar-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("org-hide-emphasis-markers" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("CompteEpargne" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("CompteCourant" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cout" .
+   [3 0 0 0])
+  ("ajouter" .
+   [0 0 0 0 1 0 0])
+  ("retirer" .
+   [0 0 0 0 1 0 0])
+  ("logic_error" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("endl" .
+   [2 0 0 0])
+  ("cerr" .
+   [1 0 0 0])
+  ("what" .
+   [1 0 0 0])
+  (":init" .
+   [1 0 0 0 0])))

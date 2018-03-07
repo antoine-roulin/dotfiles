@@ -4,6 +4,7 @@
 ;; GUI
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (fset 'yes-or-no-p 'y-or-n-p) ; shorter messages
 
@@ -24,6 +25,8 @@
 (show-paren-mode 1) ; Highlights matching parenthesis
 
 (electric-pair-mode 1) ; auto bracket insertion
+
+(c-set-offset (quote cpp-macro) 0 nil) ; pragma indentation in C/C++
 
 ;; list of recent files at startup
 (require 'recentf)
@@ -58,7 +61,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+	     '("melpa" . "https://melpa.org/packages/")
+	     '("org" . "https://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -67,25 +71,20 @@
 	(package-refresh-contents)
 	(package-install 'use-package))
 
-;; Try packages without installing them
-(use-package try
-	:ensure t)
+(setq use-package-always-ensure t)
 
 ;; Provides help for keys
 (use-package which-key
-  :ensure t
   :config
   (which-key-mode))
 	
 ;; Nicer bullets for org-mode
 (use-package org-bullets
-  :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; Window switching
 (use-package ace-window
-  :ensure t
   :init
   (global-set-key [remap other-window] 'ace-window)
   (custom-set-faces
@@ -93,8 +92,7 @@
      ((t (:inherit ace-jump-face-foreground :height 3.0))))))
     
 ;; it looks like counsel is a requirement for swiper
-(use-package counsel
-  :ensure t)
+(use-package counsel)
 
 ;; Search
 (use-package swiper
@@ -121,61 +119,46 @@
     
 ;; Quick navigation
 (use-package avy
-  :ensure t
   :bind ("M-s" . avy-goto-char))
   
 ;; Auto-completion
 (use-package auto-complete
-  :ensure t
   :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)))
+  (ac-config-default)
+  (global-auto-complete-mode t))
 
 ;; Snippets
 (use-package yasnippet
-  :ensure t
   :init
   (yas-global-mode 1))
 
 ;; Solarized theme
 (use-package solarized-theme
-  :ensure t
+  :custom
+  (solarized-distinct-fringe-background t)
+  (solarized-high-contrast-mode-line t)
+  (solarized-use-more-italic t)
+  (x-underline-at-descent-line t)
   :config
-  (load-theme 'solarized-light t)
-  (setq solarized-distinct-fringe-background t)
-  (setq solarized-high-contrast-mode-line t)
-  (setq solarized-use-more-italic t)
-  (setq x-underline-at-descent-line t))
+  (load-theme 'solarized-light t))
 
 ;; Linting
 (use-package flycheck
-  :ensure t
   :init
   (global-flycheck-mode t))
 
-;; Python completion
-(use-package jedi
-  :ensure t
-  :init
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (add-hook 'python-mode-hook 'jedi:ac-setup)) ; run M-x jedi:install-server to install
-
 ;; Quickly delete whitespace
 (use-package hungry-delete
-  :ensure t
   :config
   (global-hungry-delete-mode))
 
 ;; Expand the marked region by semantic units
 (use-package expand-region
-  :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
 ;; Web Development
 (use-package web-mode
-  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (setq web-mode-engines-alist
@@ -185,33 +168,30 @@
 	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
   (setq web-mode-enable-auto-closing t)
   (setq web-mode-enable-auto-quoting t))
+
 (use-package emmet-mode
-  :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode))
 
 (use-package better-shell
-  :ensure t
   :bind
   (("C-'" . better-shell-shell)
-	("C-;" . better-shell-remote-open)))
+   ("C-;" . better-shell-remote-open)))
 
 ;; Project management
 (use-package projectile
-  :ensure t
   :config
   (projectile-mode)
   (setq projectile-completion-system 'ivy))
+
 (use-package counsel-projectile
-  :ensure t
   :config
-  (counsel-projectile-on))
+  (counsel-projectile-mode))
 
 ;; Git versionning
-(use-package magit
-  :ensure t)
+(use-package magit)
 
 ;; LaTeX editing
 (use-package tex
@@ -221,16 +201,12 @@
 
 ;; Racket programming
 (use-package racket-mode
-  :ensure t)
-(add-hook 'racket-mode-hook
-	  (lambda ()
-	    (define-key racket-mode-map (kbd "C-c r") 'racket-run)))
-(add-hook 'racket-mode-hook #'racket-unicode-input-method-enable)
-(add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
+  :hook (((racket-mode racket-repl-mode) . racket-unicode-input-method-enable)
+	 (racket-mode . (lambda ()
+			  (define-key racket-mode-map (kbd "C-c r") 'racket-run)))))
 
 ;; Markdown
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -240,9 +216,26 @@
 ;; nice writing environment
 (use-package olivetti
   :ensure t
+  :hook (org-mode LaTeX-mode))
+
+;; multiple cursors
+(use-package multiple-cursors
+  :ensure t
   :config
-  (add-hook 'org-mode-hook 'olivetti-mode)
-  (add-hook 'LaTeX-mode-hook 'olivetti-mode))
+  (global-unset-key (kbd "M-<down-mouse-1>"))
+  (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click))
+
+;; Scala
+(use-package scala-mode
+  :interpreter ("scala" . scala-mode))
+
+(use-package eldoc
+  :ensure nil
+  :diminish eldoc-mode
+  :commands eldoc-mode)
+
+(use-package elixir-mode
+  :mode "\\.elixir2\\'")
 
 (provide 'init)
 ;;; init.el ends here
@@ -253,7 +246,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window))))
+    (scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
