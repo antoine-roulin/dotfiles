@@ -1,11 +1,7 @@
 set PATH ~/anaconda3/bin $PATH
 set PATH ~/.cargo/bin $PATH
 
-function ll
-	ls --human-readable -l $argv
-end
+alias ll="ls --human-readable -l"
 
-function scala
-	scala -Dscala.color $argv
-end
+alias scala="scala -Dscala.color"
 
