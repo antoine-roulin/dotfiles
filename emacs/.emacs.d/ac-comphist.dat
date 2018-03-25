@@ -1,4 +1,18 @@
-((("remote" .
+((("projectile-enable-caching" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("rev" .
+   [2 0 0])
+  ("println" .
+   [9 0 0 0 0 0 0])
+  ("System" .
+   [2 0 0 5 0 2])
+  ("InetAddress" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("address" .
+   [2 0 0 0 0 0 0])
+  ("java" .
+   [1 0 0 0])
+  ("remote" .
    [2 0 0 0 1 0])
   ("message" .
    [1 0 0 0 0 0 0])
@@ -55,7 +69,7 @@
   ("recentf" .
    [1 0 0 0 0 0 0])
   ("setq" .
-   [2 0 0 0])
+   [4 0 0 0])
   ("recentf-max-saved-items" .
    [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
   ("recentf-max-menu-items" .
@@ -85,7 +99,7 @@
   ("use-package" .
    [1 0 0 0 0 0 0 0 0 0 0])
   (":ensure" .
-   [1 0 0 0 0 0 0])
+   [2 0 0 0 0 0 0])
   ("global-unset-key" .
    [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
   ("kbd" .
@@ -97,7 +111,7 @@
   ("Vector" .
    [1 0 0 0 0 0])
   ("size" .
-   [1 0 0 0])
+   [2 0 0 0])
   ("std" .
    [9 0 0])
   ("main" .
@@ -141,11 +155,11 @@
   ("newPokemons" .
    [0 0 0 0 2 0 0 0 0 0 0])
   ("close" .
-   [1 0 0 0 0])
+   [6 0 0 0 0])
   ("ios" .
    [1 0 0])
   ("out" .
-   [1 0 0])
+   [8 0 0])
   ("Pokemon" .
    [4 0 0 0 0 0 0])
   ("vector" .
@@ -157,4 +171,114 @@
   ("getNom" .
    [0 0 0 0 1 0])
   ("string" .
-   [2 0 0 0 0 0])))
+   [2 0 0 0 0 0])
+  ("Reverse" .
+   [0 0 0 0 0 1 0])
+  ("reverse" .
+   [6 0 0 0 0 0 0])
+  ("tailrec" .
+   [4 0 0 0 0 0 0])
+  ("acc" .
+   [15 0 0])
+  ("list" .
+   [21 0 0 0])
+  ("tail" .
+   [18 0 0 0])
+  ("current" .
+   [2 0 0 0 0 0 0])
+  ("prt" .
+   [1 0 0])
+  ("ert" .
+   [2 0 0])
+  ("count" .
+   [5 0 0 0 0])
+  ("createTuple" .
+   [0 0 0 1 1 0 0 0 0 0 0])
+  ("emrt" .
+   [3 0 0 0])
+  ("head" .
+   [2 0 0 0])
+  ("drt" .
+   [2 0 0])
+  ("res" .
+   [3 0 0])
+  ("connectS" .
+   [0 0 0 0 1 0 0 1])
+  ("input" .
+   [9 0 0 0 0])
+  ("msg" .
+   [8 0 0])
+  ("output" .
+   [5 0 0 0 0 0])
+  ("BufferedReader" .
+   [0 0 0 0 0 0 0 0 2 0 0 0 0 0])
+  ("PrintStream" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("InputStreamReader" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("readLine" .
+   [1 0 0 0 0 1 0 1])
+  ("clientSock" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("getOutputStream" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("pri" .
+   [0 0 1])
+  ("true" .
+   [1 0 0 0])
+  ("IOException" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("getMessage" .
+   [0 0 0 0 0 1 0 0 0 0])
+  ("userInput" .
+   [0 0 0 0 2 0 0 0 0])
+  ("args" .
+   [6 0 0 0])
+  ("port" .
+   [5 0 0 0])
+  ("toUpperCase" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("null" .
+   [1 0 0 0])
+  ("server" .
+   [3 0 0 0 0 0])
+  ("names" .
+   [3 0 0 0 0])
+  ("firstNames" .
+   [0 0 0 0 1 0 2 0 0 0])
+  ("getRandomElement" .
+   [0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("nbOfStudents" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("studentGenerator" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("fill" .
+   [3 0 0 0])
+  ("nextInt" .
+   [0 0 0 0 1 0 0])
+  ("nbOfMarks" .
+   [2 0 0 0 0 1 0 0 0])
+  ("aClass" .
+   [2 0 4 0 0 0])
+  ("length" .
+   [1 0 0 0 0 0])
+  ("marksForClass" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("nbOfMark" .
+   [0 0 1 0 0 0 0 0])
+  ("theStudents" .
+   [1 0 0 0 0 0 0 0 0 1 0])
+  ("marksGenerator" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("marks" .
+   [2 0 0 0 0])
+  ("average" .
+   [1 0 0 0 0 0 0])
+  ("averageClass" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("theClassMark" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("dashboard-banner-logo-title" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("dashboard-image-banner-max-width" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])))

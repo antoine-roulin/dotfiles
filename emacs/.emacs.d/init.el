@@ -28,15 +28,6 @@
 
 (c-set-offset (quote cpp-macro) 0 nil) ; pragma indentation in C/C++
 
-;; list of recent files at startup
-(require 'recentf)
-(setq recentf-max-saved-items 50
-      recentf-max-menu-items 40)
-(recentf-mode 1)
-
-(setq inhibit-startup-message t
-      initial-buffer-choice 'recentf-open-files)
-
 ;; Backup and auto-saved files in temporary directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -90,12 +81,10 @@
   (custom-set-faces
    '(aw-leading-char-face
      ((t (:inherit ace-jump-face-foreground :height 3.0))))))
-    
-;; it looks like counsel is a requirement for swiper
-(use-package counsel)
 
 ;; Search
 (use-package swiper
+  :ensure counsel
   :ensure try
   :config
   (ivy-mode 1)
@@ -184,11 +173,23 @@
 (use-package projectile
   :config
   (projectile-mode)
-  (setq projectile-completion-system 'ivy))
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching t))
 
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode))
+
+;; startup screen
+(use-package dashboard
+  :ensure page-break-lines
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Praise St. IGNUcius!")
+  (setq dashboard-startup-banner "~/dotfiles/emacs/.emacs.d/top_gnu.jpeg")
+  (setq dashboard-image-banner-max-width 500)
+  (setq dashboard-items '((recents . 5)
+			  (projects . 5))))
 
 ;; Git versionning
 (use-package magit)
@@ -219,11 +220,11 @@
   :hook (org-mode LaTeX-mode))
 
 ;; multiple cursors
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-unset-key (kbd "M-<down-mouse-1>"))
-  (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click))
+;;(use-package multiple-cursors
+  ;;:ensure t
+  ;;:config
+  ;;(global-unset-key (kbd "M-<down-mouse-1>"))
+  ;;(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click))
 
 ;; Scala
 (use-package scala-mode
@@ -246,7 +247,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window))))
+    (dashboard page-break-lines scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window)))
+ '(solarized-distinct-fringe-background t)
+ '(solarized-high-contrast-mode-line t)
+ '(solarized-use-more-italic t)
+ '(x-underline-at-descent-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
