@@ -6,6 +6,8 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(toggle-frame-maximized)
+
 (fset 'yes-or-no-p 'y-or-n-p) ; shorter messages
 
 (global-set-key (kbd "<f5>") 'revert-buffer) ; reload a file in the current buffer
@@ -15,8 +17,6 @@
 (setq-default frame-title-format "%b (%f)") ; filename in title bar
 
 (setq ring-bell-function 'ignore) ; no bell
-
-(setq org-hide-emphasis-markers t) ; nicer emphasis in org-mode
 
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
@@ -34,26 +34,35 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-(let* ((variable-tuple '(:font "Source Sans Pro"))
-       (base-font-color     (face-foreground 'default nil 'default))
-       (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+;; Font and display
+(set-face-attribute 'default t :font "Source Code Pro" :height 126)
+(set-face-attribute 'variable-pitch t :font "Charter" :height 144)
 
-  (custom-theme-set-faces 'user
-                          `(org-level-8 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-7 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-6 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-5 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-                          `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+(defun set-buffer-variable-pitch ()
+  (interactive)
+  (variable-pitch-mode t)
+  (setq line-spacing 3)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-link nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-date nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-special-keyword nil :inherit 'fixed-pitch))
+
+(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
+
+(setq org-hide-emphasis-markers t)
+
+(global-prettify-symbols-mode 1)
+(setq prettify-symbols-unprettify-at-point t)
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/")
-	     '("org" . "https://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
 (package-initialize)
 
@@ -71,8 +80,7 @@
 	
 ;; Nicer bullets for org-mode
 (use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  :hook (org-mode . org-bullets-mode))
 
 ;; Window switching
 (use-package ace-window
@@ -217,7 +225,7 @@
 ;; nice writing environment
 (use-package olivetti
   :ensure t
-  :hook (org-mode LaTeX-mode))
+  :hook ((org-mode LaTeX-mode text-mode) . olivetti-mode))
 
 ;; multiple cursors
 ;;(use-package multiple-cursors
@@ -228,7 +236,9 @@
 
 ;; Scala
 (use-package scala-mode
-  :interpreter ("scala" . scala-mode))
+  :interpreter ("scala" . scala-mode)
+  :config
+  (setq prettify-symbols-alist scala-prettify-symbols-alist))
 
 (use-package eldoc
   :ensure nil
@@ -247,7 +257,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dashboard page-break-lines scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window)))
+    (org dashboard page-break-lines scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window)))
  '(solarized-distinct-fringe-background t)
  '(solarized-high-contrast-mode-line t)
  '(solarized-use-more-italic t)
@@ -259,11 +269,12 @@
  ;; If there is more than one, they won't work right.
  '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0))))
  '(org-document-title ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro" :height 1.5 :underline nil))))
- '(org-level-1 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro" :height 1.75))))
- '(org-level-2 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro" :height 1.5))))
- '(org-level-3 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro" :height 1.25))))
+ '(org-level-1 ((t (:inherit default :foreground "black" :slant normal :weight bold :height 1.75 :width normal :foundry "ADBO" :family "Charter"))))
+ '(org-level-2 ((t (:inherit default :foreground "black" :slant normal :weight bold :height 1.5 :width normal :foundry "ADBO" :family "Charter"))))
+ '(org-level-3 ((t (:inherit default :foreground "black" :slant normal :weight bold :height 1.25 :width normal :foundry "ADBO" :family "Charter"))))
  '(org-level-4 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro" :height 1.1))))
  '(org-level-5 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro"))))
  '(org-level-6 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro"))))
  '(org-level-7 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro"))))
- '(org-level-8 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro")))))
+ '(org-level-8 ((t (:inherit default :weight bold :foreground "black" :font "Source Sans Pro"))))
+ '(variable-pitch ((t (:family "Charter")))))
