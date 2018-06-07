@@ -81,6 +81,9 @@
 ;; Nicer bullets for org-mode
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode))
+;; Org-mode code blocks
+(setq org-src-tab-acts-natively t)
+(setq org-src-fontify-natively t)
 
 ;; Window switching
 (use-package ace-window
