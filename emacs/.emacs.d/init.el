@@ -4,6 +4,7 @@
 ;; GUI
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(tooltip-mode -1)
 (scroll-bar-mode -1)
 
 (toggle-frame-maximized)
@@ -22,7 +23,9 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
-(show-paren-mode 1) ; Highlights matching parenthesis
+;; Highlights matching parenthesis
+(setq show-paren-delay 0)
+(show-paren-mode 1)
 
 (electric-pair-mode 1) ; auto bracket insertion
 
@@ -61,9 +64,9 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-
+(setq package-archives '(("org" . "http://orgmode.org/elpa/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap `use-package'
@@ -75,9 +78,15 @@
 
 ;; Provides help for keys
 (use-package which-key
+  :init
+  (setq which-key-separator " ")
+  (setq which-key-prefix-prefix "+")
   :config
-  (which-key-mode))
-	
+  (which-key-mode 1))
+
+;; A better help buffer
+(use-package helpful)
+
 ;; Nicer bullets for org-mode
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode))
@@ -157,24 +166,6 @@
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
-;; Web Development
-(use-package web-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-engines-alist
-	'(("django" . "\\.html\\'")))
-  (setq web-mode-ac-sources-alist
-	'(("css" . (ac-source-css-property))
-	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-  (setq web-mode-enable-auto-closing t)
-  (setq web-mode-enable-auto-quoting t))
-
-(use-package emmet-mode
-  :config
-  (add-hook 'sgml-mode-hook 'emmet-mode)
-  (add-hook 'web-mode-hook 'emmet-mode)
-  (add-hook 'css-mode-hook 'emmet-mode))
-
 (use-package better-shell
   :bind
   (("C-'" . better-shell-shell)
@@ -210,6 +201,11 @@
   :ensure auctex
   :config
   (TeX-PDF-mode t))
+
+;; References in org-mode
+(use-package org-ref
+  :config
+  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
 ;; Racket programming
 (use-package racket-mode
@@ -260,7 +256,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org dashboard page-break-lines scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window)))
+    (org-ref helpful org dashboard page-break-lines scala-mode elixir-mode yasnippet which-key web-mode use-package try solarized-theme racket-mode org-journal org-bullets olivetti markdown-mode magit jedi hungry-delete flycheck expand-region emmet-mode counsel-projectile better-shell auctex ace-window)))
  '(solarized-distinct-fringe-background t)
  '(solarized-high-contrast-mode-line t)
  '(solarized-use-more-italic t)
