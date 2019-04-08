@@ -7,6 +7,7 @@ set PATH ~/android-studio/bin $PATH
 set PATH ~/Android/Sdk/platform-tools $PATH
 set PATH ~/Android/Sdk/tools $PATH
 set PATH ~/android-studio/gradle/gradle-4.10.1/bin $PATH
+set PATH /snap/bin $PATH
 
 set LC_CTYPE fr_FR.UTF-8
 
