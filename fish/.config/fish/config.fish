@@ -15,6 +15,7 @@ set PATH ~/android-studio/gradle/gradle-5.1.1/bin $PATH
 set PATH /snap/bin $PATH
 set PATH ~/flutter/bin $PATH
 set PATH $JAVA_HOME/bin $PATH
+set PATH /usr/local/go/bin $PATH
 
 set LC_CTYPE fr_FR.UTF-8
 
@@ -28,4 +29,10 @@ end
 
 # opam configuration
 source /home/antoine/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/antoine/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 
