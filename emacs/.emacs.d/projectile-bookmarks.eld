@@ -1,1 +1,0 @@
-("~/dotfiles/" "/mnt/Documents Partagés/Cours/dev/Travlendar+/" "/mnt/Documents Partagés/EISTI/2018-2019/Semestre 5/Deep Learning/" "~/OtletTraiteDocumentation/" "~/dev/arln.fr/")
