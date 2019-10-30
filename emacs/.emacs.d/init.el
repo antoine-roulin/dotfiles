@@ -3,8 +3,7 @@
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (package-initialize)
 
@@ -15,7 +14,7 @@
 (eval-when-compile
   (require 'use-package))
 
-(when (member "Iosevka" (font-family-list)) (set-frame-font "Iosevka-13" t t))
+(when (member "Iosevka SS01" (font-family-list)) (set-frame-font "Iosevka SS01-13" t t))
 
 (setq-default use-package-always-defer t
               use-package-always-ensure t
@@ -33,7 +32,7 @@
       visible-bell nil)
 
 (setq user-full-name "Antoine Roulin"
-      user-mail-address "work.roulin@gmail.com")
+      user-mail-address "antoine.roulin@coopengo.com")
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -160,16 +159,23 @@
   :config
   (global-hungry-delete-mode))
 
-;; LaTeX editing
-(use-package tex
-  :ensure auctex
-  :config
-  (TeX-PDF-mode t))
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)))
 
-;; References in org-mode
-(use-package org-ref
-  :config
-  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+;; Python Config
+
+(setq py-python-command "python3")
+(setq python-shell-interpreter "python3")
+
+(use-package jedi
+  :ensure t
+  :hook ((python-mode-hook . jedi:setup)
+         (python-mode-hook . jedi:ac-setup))
+  :config (setq jedi:complete-on-dot t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -177,10 +183,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-ref auctex page-break-lines hungry-delete solarized-theme vlf editorconfig org-bullets helpful which-key markdown-mode magit counsel-projectile projectile flycheck use-package))
- '(solarized-distinct-fringe-background t)
- '(solarized-high-contrast-mode-line t)
- '(solarized-use-more-italic t)
+   (quote
+    (elpy page-break-lines hungry-delete solarized-theme vlf editorconfig org-bullets helpful which-key markdown-mode magit counsel-projectile projectile flycheck use-package)))
+ '(solarized-distinct-fringe-background t t)
+ '(solarized-high-contrast-mode-line t t)
+ '(solarized-use-more-italic t t)
  '(x-underline-at-descent-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
