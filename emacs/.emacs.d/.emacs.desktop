@@ -1,0 +1,271 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Oct  3 11:05:46 2019
+;; Desktop file format version 208
+;; Emacs version 26.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (23957 47594 79117 150000) (desktop . "208") "coopengo@CLE5510" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYEL-Iosevka SS01-normal-normal-normal-*-17-*-*-*-d-0-iso10646-1") (font-parameter . "Iosevka SS01-13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#657b83") (background-color . "#fdf6e3") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullheight) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . light) (cursor-color . "#657b83") (sticky) (environment) (frameset--id . "03D5-04B3-89AB-0229") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (user-size . t) (height . 62) (width . 138) (left . 1270) (top . 19)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 88) (min-pixel-width . 90) (min-pixel-height-ignore . 66) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 22) (min-pixel-width-safe . 18)) leaf (pixel-width . 1280) (pixel-height . 1354) (total-width . 142) (total-height . 61) (normal-height . 1.0) (normal-width . 1.0) (buffer "library.py" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 2 t nil 0 t) (vscroll . 0) (dedicated) (point . 1179) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("flycheck" "entry" "auc"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/home/coopengo/workspace/tryton-training/modules/library/view/exemplary_form.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/book_form.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/genre_form.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/editor_form.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/genre_list.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/exemplary_list.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/book_list.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/editor_list.xml" "/home/coopengo/workspace/tryton-training/modules/library/view/author_list.xml" "/home/coopengo/workspace/tryton-training/modules/library/setup.py" "/home/coopengo/workspace/tryton-training/modules/library/view/author_form.xml" "/home/coopengo/workspace/trytond/trytond/tryton.rnc" "/home/coopengo/workspace/tryton-training/modules/library/library.xml" "/home/coopengo/workspace/tryton-training/modules/library/library.py" "/home/coopengo/workspace/tryton-training/modules/library/__init__.py" "/home/coopengo/workspace/tryton-training/modules/" "/home/coopengo/workspace/" "~/journal/2019/" "/home/coopengo/journal/2019/october.org" "/home/coopengo/.emacs.d/init.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/library.py"
+  "library.py"
+  'fundamental-mode
+  '(override-global-mode auto-complete-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode magit-file-mode)
+  1179
+  '(219 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 47062 248179 149000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (1090 1179))))
+
+(desktop-create-buffer 208
+  "/home/coopengo/dotfiles/emacs/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(eldoc-mode override-global-mode flycheck-mode auto-complete-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  3613
+  '(3173 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 46955 488040 73000) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (4316 4316 3988 3988 3988 3988 3988 3986 3986 3986 1 415 1241 1261 1286 3988))))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/setup.py"
+  "setup.py"
+  'fundamental-mode
+  '(override-global-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode magit-file-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 45486 131042 874000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/__init__.py"
+  "__init__.py"
+  'fundamental-mode
+  '(override-global-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode magit-file-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 45485 451308 134000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/journal/2019/october.org"
+  "october.org"
+  'org-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode projectile-mode company-mode)
+  287
+  '(23 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 38674 249335 724000) (buffer-file-coding-system . utf-8-unix) (truncate-lines . t))
+  '((mark-ring (62 272 279))))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/library.xml"
+  "library.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  1641
+  '(34 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 37906 819702 574000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (34 34 34 34 34 34 34 34 34 34 34 34 34 34 2755 1641))))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/exemplary_form.xml"
+  "exemplary_form.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  38
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36509 299984 412000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (38))))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/book_form.xml"
+  "book_form.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36463 565913 347000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/genre_form.xml"
+  "genre_form.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36444 70217 580000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/editor_form.xml"
+  "editor_form.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36430 143338 292000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/author_form.xml"
+  "author_form.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36415 865143 51000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/genre_list.xml"
+  "genre_list.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36402 399233 818000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/exemplary_list.xml"
+  "exemplary_list.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36387 781859 583000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/book_list.xml"
+  "book_list.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36369 631042 264000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/editor_list.xml"
+  "editor_list.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36356 594006 667000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/view/author_list.xml"
+  "author_list.xml"
+  'nxml-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  37
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 36343 65266 549000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/modules/library/tryton.cfg"
+  "tryton.cfg"
+  'conf-unix-mode
+  '(override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode magit-file-mode)
+  71
+  '(37 nil)
+  nil
+  nil
+  '((tab-width . 2) (indent-tabs-mode) (buffer-display-time 23957 32826 6813 445000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "library"
+  'dired-mode
+  '(override-global-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode projectile-mode company-mode)
+  529
+  '(nil nil)
+  t
+  '("/home/coopengo/workspace/tryton-training/modules/library/")
+  '((buffer-display-time 23957 32639 603755 697000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "modules"
+  'dired-mode
+  '(override-global-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode projectile-mode company-mode)
+  265
+  '(nil nil)
+  t
+  '("/home/coopengo/workspace/tryton-training/modules/")
+  '((buffer-display-time 23957 32638 87982 863000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/coopengo/workspace/tryton-training/README.md"
+  "README.md"
+  'gfm-mode
+  '(visual-line-mode eldoc-mode override-global-mode flycheck-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode auto-revert-mode projectile-mode company-mode flyspell-mode magit-file-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-display-time 23957 32622 692495 886000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "tryton-training"
+  'dired-mode
+  '(override-global-mode hungry-delete-mode ivy-mode editorconfig-mode which-key-mode projectile-mode company-mode)
+  319
+  '(nil nil)
+  t
+  '("/home/coopengo/workspace/tryton-training/")
+  '((buffer-display-time 23957 46867 627552 362000))
+  '((mark-ring nil)))
+
