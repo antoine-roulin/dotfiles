@@ -1,3 +1,4 @@
+# Defined in - @ line 2
 function fish_prompt --description 'Write out the prompt'
 	set -l last_status $status
 
@@ -33,8 +34,8 @@ function fish_prompt --description 'Write out the prompt'
     if not set -q __fish_git_prompt_char_untrackedfiles
         set -g __fish_git_prompt_char_untrackedfiles "…"
     end
-    if not set -q __fish_git_prompt_char_conflictedstate
-        set -g __fish_git_prompt_char_conflictedstate "✖"
+    if not set -q __fish_git_prompt_char_invalidstate
+        set -g __fish_git_prompt_char_invalidstate "✖"
     end
     if not set -q __fish_git_prompt_char_cleanstate
         set -g __fish_git_prompt_char_cleanstate "✔"
@@ -80,14 +81,17 @@ function fish_prompt --description 'Write out the prompt'
     set_color $color_cwd
     echo -n (prompt_pwd)
     set_color normal
-
+    if set -q VIRTUAL_ENV
+        echo -n -s (set_color blue) " [" (basename "$VIRTUAL_ENV") "]" (set_color normal)
+    end
     printf '%s ' (__fish_vcs_prompt)
 
     if not test $last_status -eq 0
         set_color $fish_color_error
+        echo -n "[$last_status] "
+        set_color normal
     end
 
-    echo -n "$suffix "
-
-    set_color normal
+    echo -n "
+$suffix "
 end

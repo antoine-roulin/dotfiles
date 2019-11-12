@@ -1,38 +1,14 @@
-#set JAVA_HOME /usr/lib/jvm/java-1.11.0-openjdk-amd64
-set JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-set ANDROID_HOME ~/Android/Sdk
+set PATH ~/bin ~/.local/bin $PATH
+set PATH ~/.emacs.d/bin $PATH
 
-set PATH ~/bin $PATH
-set PATH ~/anaconda3/bin $PATH
-set PATH ~/.cargo/bin $PATH
-set PATH /usr/local/go/bin $PATH
-set PATH ~/go/bin $PATH
-set PATH ~/android-studio/bin $PATH
-set PATH $ANDROID_HOME/platform-tools $PATH
-set PATH $ANDROID_HOME/tools $PATH
-set PATH $ANDROID_HOME/tools/bin $PATH
-set PATH ~/android-studio/gradle/gradle-5.1.1/bin $PATH
-set PATH /snap/bin $PATH
-set PATH ~/flutter/bin $PATH
-set PATH $JAVA_HOME/bin $PATH
-set PATH /usr/local/go/bin $PATH
+set -x PATH "/home/coopengo/.pyenv/bin" $PATH
+pyenv init - | source
+status --is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
-set LC_CTYPE fr_FR.UTF-8
+set -x DIRENV_LOG_FORMAT ""
+eval (direnv hook fish)
 
-alias ll="ls --human-readable -l"
-
-alias scala="scala -Dscala.color"
-
-function bibOfDoi --description 'Fetch the BibTeX entry corresponding to a DOI'
-    curl -LH 'Accept: application/x-bibtex' $argv
-end
-
-# opam configuration
-source /home/antoine/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /home/antoine/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden --vimgrep'
+set FZF_DEFAULT_OPTS '--color fg:-1,bg:-1,hl:33,fg+:235,bg+:254,hl+:33
+		      --color info:136,prompt:136,pointer:234,marker:234,spinner:136'
