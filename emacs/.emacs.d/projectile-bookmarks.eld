@@ -1,1 +1,1 @@
-("~/workspace/tryton-training/" "~/dotfiles/" "~/workspace/trytond-modules/" "~/workspace/trytond/" "~/workspace/tryton/" "~/workspace/sao/" "~/workspace/proteus/" "~/workspace/coog-app/" "~/workspace/coog/" "~/workspace/api/")
+("~/workspace/coog/" "~/workspace/trytond-modules/" "~/workspace/trytond/" "~/workspace/tryton/" "~/workspace/sao/" "~/workspace/proteus/" "~/workspace/coog-portal/" "~/workspace/coog-app/" "~/workspace/api/")

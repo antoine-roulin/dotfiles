@@ -1,0 +1,9 @@
+auto-save-list
+elpa
+elpy
+*~
+*.lock
+projectile-bookmarks.eld
+recentf
+snippets
+transient
