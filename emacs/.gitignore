@@ -3,6 +3,7 @@ elpa
 elpy
 *~
 *.lock
+*.desktop
 projectile-bookmarks.eld
 recentf
 snippets
