@@ -8,8 +8,6 @@ set hlsearch
 set encoding=utf-8
 set fileencoding=utf8
 set cursorline
-" Do not modify cursor
-set guicursor=
 set scrolloff=3
 " Use system clipboard
 set clipboard=unnamedplus
@@ -29,6 +27,17 @@ set shiftround
 " Enable smart indent.
 set autoindent smartindent
 
+" YOLO
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+" Custom folding
 set foldenable
 set foldmethod=syntax
 set foldlevelstart=1
@@ -59,25 +68,9 @@ set foldtext=CustomFoldText()
 
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 
-" Beginning and end of line
-imap <C-a> <home>
-imap <C-e> <end>
-cmap <C-a> <home>
-cmap <C-e> <end>
-
-" Control-S Save
-" nmap <C-S> :w<cr>
-" vmap <C-S> <esc>:w<cr>
-" imap <C-S> <esc>:w<cr>
-" Save + back into insert
-" imap <C-S> <esc>:w<cr>a
-
-" Control-C Copy in visual mode
-vmap <C-C> y
-
-" Control-V Paste in insert and command mode
-imap <C-V> <esc>pa
-cmap <C-V> <C-r>0
+" Open splits naturally
+set splitbelow
+set splitright
 
 " Mouse support
 set mouse=a
@@ -91,6 +84,8 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'junegunn/fzf.vim'
 
 Plug 'jiangmiao/auto-pairs'
@@ -98,6 +93,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
 Plug 'jreybert/vimagit'
+
+Plug 'dag/vim-fish'
 
 Plug 'pangloss/vim-javascript'
 
@@ -124,6 +121,13 @@ let g:neosolarized_italic = 1
 let g:airline_theme='solarized'
 set noshowmode
 
+" Hide fzf status bar
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+endif
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -139,13 +143,29 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" Preview for RipGrep
+let g:rg_command = '
+    \ rg --column --line-number --no-heading --fixed-strings --follow --hidden --color=always --smart-case
+    \ -g "!{.git,node_modules,vendor}/*" '
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   g:rg_command .shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(),
+  \   <bang>0)
+
+" Same for Files
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 nmap <C-p> :Files<Cr>
-nmap <C-j> :Files <C-R>=expand('%:h')<Cr><Cr>
-nmap <C-F> :Rg<Cr>
-nmap <C-b> :Buffers<Cr>
-nmap <C-h> :History<Cr>
+nmap <C-M-p> :Files <C-R>=expand('%:h')<Cr><Cr>
+nmap <C-f> :Rg<Cr>
+nmap <C-M-b> :Buffers<Cr>
+nmap <C-M-h> :History<Cr>
 
 let g:gitgutter_override_sign_column_highlight = 0
+
+autocmd FileType fish compiler fish
 
 if exists("$VIRTUAL_ENV")
     let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
@@ -173,3 +193,12 @@ let g:tryton_model_match = {
     \ 'move': 'account.move',
     \ 'user': 'res.user',
     \ }
+
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType python,python.trpy,rst,xml,xml.trxml :call <SID>StripTrailingWhitespaces()
