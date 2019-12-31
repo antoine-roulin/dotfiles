@@ -88,6 +88,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'junegunn/fzf.vim'
 
+Plug 'junegunn/vim-slash'
+
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'airblade/vim-gitgutter'
