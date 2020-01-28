@@ -37,6 +37,8 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+inoremap jj <ESC>
+
 " Custom folding
 set foldenable
 set foldmethod=syntax
@@ -67,6 +69,7 @@ endfunction
 set foldtext=CustomFoldText()
 
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
 " Open splits naturally
 set splitbelow
