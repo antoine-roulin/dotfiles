@@ -1,3 +1,11 @@
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+(add-hook 'after-init-hook
+          `(lambda ()
+             (setq gc-cons-threshold 800000
+                   gc-cons-percentage 0.1)
+             (garbage-collect)) t)
+
 ;; Setup
 
 (setq user-full-name "Antoine Roulin"
@@ -51,68 +59,44 @@
   :config
   (load-theme 'solarized-light t))
 
-(use-package doom-modeline
-  :ensure t)
-(doom-modeline-mode)
-
 (setq save-interprogram-paste-before-kill t)
 
 (desktop-save-mode 1)
 
 (use-package hungry-delete
   :ensure t
-  :config
-  (global-hungry-delete-mode))
+  :hook prog-mode)
 
 (use-package aggressive-indent
   :ensure t
-  :config
-  (global-aggressive-indent-mode 1))
+  :hook prog-mode)
 
-;; Swiper, Ivy, Counsel
+;; Helm
 
-(use-package counsel
+(use-package helm
   :ensure t
-  :bind
-  (("M-y" . counsel-yank-pop)
-   :map ivy-minibuffer-map
-   ("M-y" . ivy-next-line)))
-
-(use-package ivy
-  :ensure t
-  :diminish (ivy-mode)
-  :bind (("C-x b" . ivy-switch-buffer))
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x f" . helm-recentf)
+         ("C-SPC" . helm-dabbrev)
+         ("M-y" . helm-show-kill-ring)
+         ("C-x b" . helm-mini))
   :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "%d/%d ")
-  (setq ivy-display-style 'fancy))
-
-(use-package swiper
-  :ensure t
-  :bind (("C-s" . swiper-isearch)
-	 ("C-r" . swiper-isearch)
-	 ("C-c C-r" . ivy-resume)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file))
-  :config
-  (progn
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+  (helm-mode 1)
+  (setq helm-buffers-fuzzy-matching t
+        helm-M-x-fuzzy-match t
+        helm-recentf-fuzzy-match t))
 
 ;; Linter
 
 (use-package flycheck
   :ensure t
-  :init
-  (global-flycheck-mode t))
+  :hook prog-mode)
 
 ;; Small interface tweaks
 
 (use-package which-key
-  :ensure t 
+  :ensure t
   :config
   (which-key-mode))
 
@@ -148,9 +132,10 @@
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-(setq org-hide-emphasis-markers t)
-(setq org-src-tab-acts-natively t)
-(setq org-src-fontify-natively t)
+(setq org-hide-emphasis-markers t
+      org-src-tab-acts-natively t
+      org-src-fontify-natively t
+      org-catch-invisible-edits 'show-and-error)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -172,10 +157,10 @@
 
 (use-package yasnippet
   :ensure t
-  :init
-  (yas-global-mode 1))
+  :hook prog-mode)
 (use-package yasnippet-snippets
-  :ensure t)
+  :ensure t
+  :hook yasnippet)
 
 ;; Projectile
 
@@ -183,46 +168,33 @@
   :ensure t
   :bind (:map projectile-mode-map
               ("C-c p" . 'projectile-command-map))
-  :config 
+  :config
   (projectile-mode +1))
 
 ;; Completion
 
 (use-package company
   :ensure t
+  :hook prog-mode
   :config
   (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3)
-  (global-company-mode t))
-
-;; Python
-
-(add-hook 'python-mode-hook
-	  (lambda ()
-            (setq indent-tabs-mode nil)
-	    (infer-indentation-style)
-	    (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
-
-(use-package virtualenvwrapper
-  :ensure t
-  :config
-  (venv-initialize-interactive-shells)
-  (venv-initialize-eshell))
-
-(venv-workon "coog")
+  (setq company-minimum-prefix-length 3))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(doom-modeline-height 25)
  '(package-selected-packages
    (quote
-    (helpful virtualenvwrapper company projectile yasnippet-classic-snippets yasnippet-snippets yasnippet smartparens org-bullets git-gutter git-timemachine magit which-key flycheck counsel aggressive-indent hungry-delete doom-modeline solarized-theme use-package)))
+    (helpful company projectile yasnippet-classic-snippets yasnippet-snippets yasnippet smartparens org-bullets git-gutter git-timemachine magit which-key flycheck aggressive-indent hungry-delete solarized-theme use-package)))
  '(solarized-distinct-fringe-background t)
  '(solarized-high-contrast-mode-line nil)
+ '(solarized-scale-org-headlines nil)
  '(solarized-use-more-italic t)
- '(sp-escape-quotes-after-insert nil)
+ '(solarized-use-variable-pitch nil)
+ '(sp-escape-quotes-after-insert nil t)
  '(x-underline-at-descent-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
