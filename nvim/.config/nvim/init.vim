@@ -83,6 +83,8 @@ source /usr/share/doc/fzf/examples/fzf.vim
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'tpope/vim-sensible'
+
 Plug 'iCyMind/NeoSolarized'
 
 Plug 'vim-airline/vim-airline'
@@ -96,6 +98,7 @@ Plug 'junegunn/vim-slash'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'airblade/vim-gitgutter'
