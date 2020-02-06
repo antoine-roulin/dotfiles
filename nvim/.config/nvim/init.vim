@@ -4,6 +4,7 @@ set number
 set ignorecase
 set smartcase
 set incsearch
+set inccommand=nosplit
 set hlsearch
 set encoding=utf-8
 set fileencoding=utf8
@@ -94,6 +95,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
