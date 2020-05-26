@@ -80,8 +80,6 @@ set splitright
 " Mouse support
 set mouse=a
 
-source /usr/share/doc/fzf/examples/fzf.vim
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-sensible'
@@ -93,6 +91,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'junegunn/vim-slash'
@@ -135,11 +134,8 @@ let g:airline_theme='solarized'
 set noshowmode
 
 " Hide fzf status bar
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
-endif
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
