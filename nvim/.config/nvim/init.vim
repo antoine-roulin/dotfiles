@@ -158,7 +158,7 @@ let g:fzf_colors =
 
 " Preview for RipGrep
 let g:rg_command = '
-    \ rg --column --line-number --no-heading --fixed-strings --follow --hidden --color=always --smart-case
+    \ rg --column --line-number --no-heading --fixed-strings --follow --color=always --smart-case
     \ -g "!{.git,node_modules,vendor}/*" '
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
