@@ -86,8 +86,8 @@ Plug 'tpope/vim-sensible'
 
 Plug 'iCyMind/NeoSolarized'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -130,8 +130,17 @@ set background=light
 colorscheme NeoSolarized
 let g:neosolarized_italic = 1
 
-let g:airline_theme='solarized'
 set noshowmode
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ 'colorscheme': '16color',
+      \ }
 
 " Hide fzf status bar
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
