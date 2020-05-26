@@ -70,7 +70,8 @@ endfunction
 set foldtext=CustomFoldText()
 
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Open splits naturally
 set splitbelow
@@ -108,6 +109,7 @@ Plug 'jreybert/vimagit'
 Plug 'dag/vim-fish'
 
 Plug 'pangloss/vim-javascript'
+Plug 'stephpy/vim-yaml'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
