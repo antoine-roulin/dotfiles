@@ -1,1 +1,0 @@
-/usr/share/doc/fzf/examples/fish_user_key_bindings.fish

@@ -11,3 +11,5 @@ eval (direnv hook fish)
 set -gx FZF_DEFAULT_COMMAND 'fdfind --type f'
 set FZF_DEFAULT_OPTS '--color fg:-1,bg:-1,hl:33,fg+:235,bg+:254,hl+:33
 		      --color info:136,prompt:136,pointer:234,marker:234,spinner:136'
+
+set -x PATH "/home/coopengo/git-fuzzy/bin" $PATH
