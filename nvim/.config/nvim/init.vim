@@ -1,10 +1,9 @@
 set textwidth=80
 
-set number
 set ignorecase
 set smartcase
 set incsearch
-set inccommand=nosplit
+set inccommand=split
 set hlsearch
 set encoding=utf-8
 set fileencoding=utf8
@@ -27,6 +26,8 @@ set shiftwidth=4
 set shiftround
 " Enable smart indent.
 set autoindent smartindent
+
+let mapleader=" "
 
 " YOLO
 map <up> <nop>
@@ -102,8 +103,12 @@ Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'rhysd/git-messenger.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'jreybert/vimagit'
+
+Plug 'easymotion/vim-easymotion'
 
 Plug 'dag/vim-fish'
 
@@ -113,6 +118,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
+Plug 'jeetsukumaran/vim-pythonsense'
 
 Plug 'neomake/neomake'
 
@@ -137,10 +143,16 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
+      \   'gitbranch': 'gitbranch#name',
+      \   'filename': 'FilenameForLightline'
       \ },
       \ 'colorscheme': '16color',
       \ }
+
+" Show full path of filename
+function! FilenameForLightline()
+    return expand('%')
+endfunction
 
 " Hide fzf status bar
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
@@ -175,13 +187,45 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-nmap <C-p> :Files<Cr>
-nmap <C-M-p> :Files <C-R>=expand('%:h')<Cr><Cr>
-nmap <C-f> :Rg<Cr>
-nmap <C-M-b> :Buffers<Cr>
-nmap <C-M-h> :History<Cr>
+nmap <C-p> :Files<CR>
+nmap <C-M-p> :Files <C-R>=expand('%:h')<CR><CR>
+nmap <C-f> :Rg<CR>
+nmap <C-M-f> :Rg<C-R><C-W><CR>
+nmap <C-M-b> :Buffers<CR>
+nmap <C-M-h> :History<CR>
+nmap <C-t> :Tags <C-R><C-W><CR>
 
 let g:gitgutter_override_sign_column_highlight = 0
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Move to line
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+nnoremap <Leader>gs :G<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Gpush mine HEAD<CR>
+nnoremap <Leader>gP :Gpull origin HEAD<CR>
+nnoremap <Leader>gk :GBranches<CR>
+
+nmap <Leader>gh :diffget //2<CR>
+nmap <Leader>gl :diffget //3<CR>
+
+nnoremap <Leader>gv :GV!<CR>
+nnoremap <Leader>gV :GV<CR>
 
 autocmd FileType fish compiler fish
 
@@ -192,6 +236,7 @@ else
 endif
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#ignore_errors = 1
 let g:jedi#completions_enabled = 0
 
 call neomake#configure#automake('nrw', 500)
