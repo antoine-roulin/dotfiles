@@ -16,6 +16,8 @@
 
 ;; Package management setup
 
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (require 'package)
 
 (setq package-enable-at-startup nil)
@@ -52,8 +54,7 @@
 (when (member "Iosevka SS01" (font-family-list)) (set-frame-font "Iosevka SS01-12" t t))
 
 (use-package modus-operandi-theme
-  :ensure
-  :config (load-theme modus-operandi))
+  :ensure)
 
 (use-package smooth-scrolling
   :ensure t
@@ -90,29 +91,16 @@
 
 ;; Fuzzy search and selections
 
-(use-package icomplete-vertical
+(use-package selectrum
   :ensure t
-  :demand t
-  :custom
-  (completion-styles '(partial-completion substring))
-  (completion-category-overrides '((file (styles basic substring))))
-  (read-file-name-completion-ignore-case t)
-  (read-buffer-completion-ignore-case t)
-  (completion-ignore-case t)
   :config
-  (icomplete-mode)
-  (icomplete-vertical-mode)
-  :bind (:map icomplete-minibuffer-map
-              ("<down>" . icomplete-forward-completions)
-              ("C-n" . icomplete-forward-completions)
-              ("<up>" . icomplete-backward-completions)
-              ("C-p" . icomplete-backward-completions)
-              ("C-v" . icomplete-vertical-toggle)))
+  (selectrum-mode +1))
 
-(use-package orderless
+(use-package selectrum-prescient
   :ensure t
-  :init (icomplete-mode) ; optional but recommended!
-  :custom (completion-styles '(orderless)))
+  :config
+  (selectrum-prescient-mode +1)
+  (prescient-persist-mode +1))
 
 ;; Completion
 
@@ -169,6 +157,25 @@
   (cursor-type-mode 1))
 (add-hook 'org-mode-hook 'arln/after-org-mode-load)
 
+(defun arln/org-confirm-babel-evaluate (lang body)
+  (not (or (string= lang "latex") (string= lang "restclient"))))
+(setq org-confirm-babel-evaluate 'arln/org-confirm-babel-evaluate)
+
+;; REST client
+
+(use-package restclient
+  :ensure t)
+
+(use-package company-restclient
+  :ensure t
+  :after (company know-your-http-well)
+  :config (add-to-list 'company-backends 'company-restclient))
+
+(use-package ob-restclient
+  :ensure t
+  :config
+  (org-babel-do-load-languages 'org-babel-load-languages '((restclient . t))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -179,7 +186,7 @@
     ("00664002472a541e3df8a699c2ea4a5474ea30518b6f9711fdf5fe3fe8d6d34f" default)))
  '(package-selected-packages
    (quote
-    (mixed-pitch olivetti org-superstar helpful smartparens org-bullets git-gutter git-timemachine magit which-key use-package)))
+    (json-mode mixed-pitch olivetti org-superstar helpful smartparens org-bullets git-gutter git-timemachine magit which-key use-package)))
  '(sp-escape-quotes-after-insert nil)
  '(x-underline-at-descent-line t))
 (custom-set-faces
