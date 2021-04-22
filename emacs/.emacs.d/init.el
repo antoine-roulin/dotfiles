@@ -1,180 +1,139 @@
-;; -*- lexical-binding: t -*-
+(setq gc-cons-threshold (* 50 1000 1000))
 
-;; Reduce startup time
-(setq gc-cons-threshold 402653184
-      gc-cons-percentage 0.6)
-(add-hook 'after-init-hook
-          `(lambda ()
-             (setq gc-cons-threshold 800000
-                   gc-cons-percentage 0.1)
-             (garbage-collect)) t)
+(setq inhibit-startup-message t)
 
-;; Personnal informations
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(menu-bar-mode -1)
 
-(setq user-full-name "Antoine Roulin"
-      user-mail-address "antoine.roulin@coopengo.com")
+(set-fringe-mode 10)
 
-;; Package management setup
+(column-number-mode)
 
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(global-hl-line-mode 1)
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+(set-face-attribute 'default nil :font "Iosevka SS12" :height 125)
 
 (require 'package)
 
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("org" . "https://orgmode.org/elpa/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
   (package-install 'use-package))
 
-;; UTF-8 as default encoding
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
+(require 'use-package)
+(setq use-package-always-ensure t)
 
-;; Interface
+(use-package diminish)
 
-(setq inhibit-startup-message t)
-(setq inhibit-startup-echo-area-message t)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(fset 'yes-or-no-p 'y-or-n-p)
+(use-package modus-themes
+  :config
+  (load-theme 'modus-operandi t))
 
-(global-hl-line-mode t) ; highlight current line
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-f" . ivy-alt-done)
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :init
+  (ivy-mode 1))
 
-(setq-default frame-title-format "%f") ; filename in title bar
+(use-package counsel
+   :after ivy
+   :bind (("M-x" . counsel-M-x)
+          ("C-x b" . counsel-ibuffer)
+          ("C-x C-f" . counsel-find-file)
+          :map minibuffer-local-map
+          ("C-r" . 'counsel-minibuffer-history))
+   :custom
+   (ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
 
-;; Highlights matching parenthesis
-(setq show-paren-delay 0)
-(show-paren-mode 1)
+(use-package ivy-prescient
+  :after counsel
+  :config
+  (ivy-prescient-mode 1)
+  (prescient-persist-mode 1))
 
-(when (member "Iosevka SS01" (font-family-list)) (set-frame-font "Iosevka SS01-12" t t))
+(use-package ivy-rich
+  :init (ivy-rich-mode 1))
 
-(use-package modus-operandi-theme
-  :ensure)
-
-(use-package smooth-scrolling
-  :ensure t
-  :config (smooth-scrolling-mode 1))
-
-(setq save-interprogram-paste-before-kill t)
-
-(desktop-save-mode 1)
+(use-package rainbow-delimiters
+  :diminish
+  :hook (emacs-lisp-mode . rainbow-delimiters-mode))
 
 (use-package which-key
-  :ensure t
-  :config (which-key-mode))
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :custom
+  (which-key-idle-delay 0.3))
 
 (use-package helpful
-  :ensure t
-  :bind (("C-h f" . helpful-callable)
-	 ("C-h v" . helpful-variable)
-	 ("C-h k" . helpful-key)
-	 ("C-c C-d" . helpful-at-point)
-	 ("C-h F" . helpful-function)
-	 ("C-h C" . helpful-command)))
-
-;; Editing
-
-(use-package undo-tree
-  :ensure t
-  :config (global-undo-tree-mode))
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
 
 (use-package evil
-  :ensure t
-  :config (evil-mode 1))
-
-(setq electric-pair-mode 1)
-
-;; Fuzzy search and selections
-
-(use-package selectrum
-  :ensure t
-  :config
-  (selectrum-mode +1))
-
-(use-package selectrum-prescient
-  :ensure t
-  :config
-  (selectrum-prescient-mode +1)
-  (prescient-persist-mode +1))
-
-;; Completion
-
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3)
-  (global-company-mode t))
-
-;; Magit
-
-(use-package magit
-  :ensure t
   :init
-  (progn (bind-key "C-x g" 'magit-status)))
-
-(setq magit-status-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
-
-(use-package git-timemachine
-  :ensure t)
-
-(use-package git-gutter
-  :ensure t
-  :init (global-git-gutter-mode +1))
-
-;; Org-mode
-
-(use-package org-superstar
-  :ensure t
-  :hook (org-mode . org-superstar-mode))
-
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-
-(setq org-hide-emphasis-markers t
-      org-src-tab-acts-natively t
-      org-src-fontify-natively t
-      org-catch-invisible-edits 'show-and-error)
-
-(use-package olivetti
-  :ensure t
-  :hook (org-mode . olivetti-mode)
+  (setq evil-want-keybinding nil)
   :config
-  (setq olivetti-body-width 0.65)
-  (setq olivetti-minimum-body-width 72)
-  (setq olivetti-recall-visual-line-mode-entry-state t))
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
-(use-package mixed-pitch
-  :ensure t
-  :hook (org-mode . mixed-pitch-mode))
-
-(defun arln/after-org-mode-load ()
-  (set-window-fringes (selected-window) 0 0)
-  (cursor-type-mode 1))
-(add-hook 'org-mode-hook 'arln/after-org-mode-load)
-
-(defun arln/org-confirm-babel-evaluate (lang body)
-  (not (or (string= lang "latex") (string= lang "restclient"))))
-(setq org-confirm-babel-evaluate 'arln/org-confirm-babel-evaluate)
-
-;; REST client
-
-(use-package restclient
-  :ensure t)
-
-(use-package company-restclient
-  :ensure t
-  :after (company know-your-http-well)
-  :config (add-to-list 'company-backends 'company-restclient))
-
-(use-package ob-restclient
-  :ensure t
+(use-package evil-collection
+  :after (evil magit)
   :config
-  (org-babel-do-load-languages 'org-babel-load-languages '((restclient . t))))
+  (evil-collection-init))
+
+(use-package projectile
+  :diminish projectil-mode
+  :config
+  (projectile-mode)
+  :custom
+  (projectile-completion-system 'ivy)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit)
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -183,15 +142,13 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("00664002472a541e3df8a699c2ea4a5474ea30518b6f9711fdf5fe3fe8d6d34f" default)))
+    ("d2db4af7153c5d44cb7a67318891e2692b8bf5ddd70f47ee7a1b2d03ad25fcd9" default)))
  '(package-selected-packages
    (quote
-    (json-mode mixed-pitch olivetti org-superstar helpful smartparens org-bullets git-gutter git-timemachine magit which-key use-package)))
- '(sp-escape-quotes-after-insert nil)
- '(x-underline-at-descent-line t))
+    (evil-org which-key use-package rainbow-delimiters modus-themes ivy-rich ivy-prescient helpful evil-magit evil-collection doom-modeline diminish counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(variable-pitch ((t (:height 1.2 :family "Alegreya")))))
+ )
