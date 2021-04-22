@@ -73,6 +73,7 @@ set foldtext=CustomFoldText()
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType pug setlocal ts=4 sts=4 sw=4 expandtab
 
 " Open splits naturally
 set splitbelow
@@ -85,12 +86,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-sensible'
 
-Plug 'iCyMind/NeoSolarized'
+Plug 'lifepillar/vim-solarized8'
 
-Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
-
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
+Plug 'knubie/vim-kitty-navigator'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -129,30 +128,27 @@ Plug 'Shougo/denite.nvim'
 
 Plug 'JCavallo/tryton-vim'
 
+Plug 'digitaltoad/vim-pug'
+Plug 'dNitro/vim-pug-complete'
+
 call plug#end()
 
-syntax enable
+set termguicolors
+syntax on
 set background=light
-colorscheme NeoSolarized
-let g:neosolarized_italic = 1
+colorscheme solarized8_flat
 
-set noshowmode
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name',
-      \   'filename': 'FilenameForLightline'
-      \ },
-      \ 'colorscheme': '16color',
-      \ }
+function! s:statusline_expr()
+  let mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
+  let ro  = "%{&readonly ? '[RO] ' : ''}"
+  let ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+  let fug = "[%{exists('g:loaded_fugitive') ? fugitive#head() : ''}] "
+  let sep = ' %= '
+  let pos = ' %(%l : %c%V%)'
 
-" Show full path of filename
-function! FilenameForLightline()
-    return expand('%')
+  return fug.'%f %<'.mod.ro.ft.sep.pos
 endfunction
+let &statusline = s:statusline_expr()" set noshowmode
 
 " Hide fzf status bar
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
@@ -180,7 +176,7 @@ let g:rg_command = '
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   g:rg_command .shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(),
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
   \   <bang>0)
 
 " Same for Files
@@ -214,12 +210,12 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 nnoremap <Leader>gs :G<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gp :Gpush mine HEAD<CR>
-nnoremap <Leader>gP :Gpull origin HEAD<CR>
-nnoremap <Leader>gk :GBranches<CR>
+nnoremap <Leader>gb :Git blame<CR>
+nnoremap <Leader>gd :Git diff<CR>
+nnoremap <Leader>gc :Git commit<CR>
+nnoremap <Leader>gp :Git push mine HEAD<CR>
+nnoremap <Leader>gP :Git pull origin HEAD<CR>
+nnoremap <Leader>gk :Git branches<CR>
 
 nmap <Leader>gh :diffget //2<CR>
 nmap <Leader>gl :diffget //3<CR>
